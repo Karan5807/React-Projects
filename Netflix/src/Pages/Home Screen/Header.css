@@ -1,0 +1,39 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Header {
+    background-color: black;
+    height: fit-content;
+}
+
+.NetflixLogo {
+    width: 14rem;
+    height: 2.8rem;
+    padding: 1%;
+}
+
+.Link {
+    width: 7rem;
+    text-decoration: none;
+    display: flex;
+    font-size: larger;
+    color: white;
+    cursor: pointer;
+    padding: 1%;
+}
+
+.Logo {
+    width: 7rem;
+    text-decoration: none;
+    display: flex;
+    font-size: larger;
+    color: white;
+}
+
+.Icon {
+    cursor: pointer;
+    font-size: larger;
+}

@@ -1,0 +1,14 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Banner {
+    height: 26.7rem;
+    background-image: url("https://www.bollywoodhungama.com/wp-content/uploads/2019/09/Animal-cover-image2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: black;
+}
