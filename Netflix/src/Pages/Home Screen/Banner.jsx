@@ -14,10 +14,10 @@ const Banner = () => {
                 </Grid>
                 <Grid container p={4} display={"flex"} >
                     <Grid item p={2} >
-                        <Button variant="outlined" color="error">Play<PlayArrowIcon /></Button>
+                        <Button variant="outlined" color="error" size="medium">Play<PlayArrowIcon /></Button>
                     </Grid>
                     <Grid item p={2} >
-                        <Button variant="outlined" color="error">My List<AddIcon /></Button>
+                        <Button variant="outlined" color="error" size="medium">My List<AddIcon /></Button>
                     </Grid>
                 </Grid>
             </Grid>

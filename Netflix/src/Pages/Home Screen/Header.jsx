@@ -8,7 +8,7 @@ import "./Header.css";
 function Header() {
     return (
         <Grid container className="Header" display={"flex"} justifyContent={"space-between"} p={1}>
-            <Grid item maxWidth={15}>
+            <Grid item>
                 <img className="NetflixLogo" src={NetflixLogo} alt="A Netflix Logo" />
             </Grid>
             <Grid item display={"flex"} justifyContent={"space-evenly"}>
