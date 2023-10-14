@@ -1,0 +1,33 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.Header {
+    background-image: url("../../assets/SVG/Netflix_website_medium.jpg");
+}
+
+.NetflixBG {
+    width: 8rem;
+    height: 3rem;
+    padding: 2px;
+}
+
+.Shadow {
+    margin-top: 15rem;
+}
+
+.EmailInput {
+    justify-content: center;
+}
+
+.Input {
+    height: 2.3rem;
+    width: 18rem;
+    background-color: transparent;
+    padding: 1rem;
+    color: white;
+    border-color: azure;
+    border-width: 0.1rem;
+}
