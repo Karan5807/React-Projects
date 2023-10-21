@@ -1,13 +1,21 @@
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import NetflixBG from "../../assets/SVG/NetflixBG.png";
 import "./FirstScreen.css";
 
 const FirstScreen = () => {
+
+    const navigate = useNavigate();
+
+    const onStart = () => {
+        navigate("/Home");
+    }
+
     return (
         <div>
             <Grid container>
-                <Grid container className="Header">
+                <Grid container className="First_Screen_Header">
 
                     <Grid container display={"flex"} justifyContent={"space-between"} mt={2}>
                         <Grid item><img className="NetflixBG" src={NetflixBG} /></Grid>
@@ -16,7 +24,7 @@ const FirstScreen = () => {
                                 <Button variant="outlined" color="warning">English</Button>
                             </Grid>
                             <Grid item p={1}>
-                                <Button variant="contained" color="error">Get Started</Button>
+                                <Button variant="contained" color="error" onClick={onStart}>Get Started</Button>
                             </Grid>
                         </Grid>
                     </Grid>
@@ -27,13 +35,13 @@ const FirstScreen = () => {
                         <Typography mt={6} variant="h5" justifyContent={"center"} color={"white"} textAlign={"center"}>Ready to watch? Enter your email to create or restart your membership.</Typography>
                     </Grid>
 
-                    <Grid container className="EmailInput"  mt={10} mb={10} display={"flex"}>
+                    <Grid container className="EmailInput" mt={10} mb={10} display={"flex"}>
                         <Grid item p={1}>
-                           <input type="email" className="Input" placeholder="Email Address"/>
+                            <input type="email" className="Input" placeholder="Email Address" />
                         </Grid>
 
                         <Grid item p={1}>
-                            <Button variant="contained" color="error">Get Started <ArrowForwardIosIcon /></Button>
+                            <Button variant="contained" color="error" onClick={onStart}>Get Started <ArrowForwardIosIcon /></Button>
                         </Grid>
                     </Grid>
 
