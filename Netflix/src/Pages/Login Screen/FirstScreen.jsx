@@ -1,13 +1,16 @@
 import { Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import tv from "../../assets/SVG/Tv.png";
+import DownloadImage from "../../assets/SVG/Download.jpg";
+import DeviceImage from "../../assets/SVG/Device.png";
+import ChildrenImage from "../../assets/SVG/Children.png";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import NetflixBG from "../../assets/SVG/NetflixBG.png";
+import Accordion from "../../assets/Core/Accordion";
 import "./FirstScreen.css";
 
 const FirstScreen = () => {
-
     const navigate = useNavigate();
-
     const onStart = () => {
         navigate("/Home");
     }
@@ -15,13 +18,14 @@ const FirstScreen = () => {
     return (
         <div>
             <Grid container>
+                {/* Sectionf for Screen Holder */}
                 <Grid container className="First_Screen_Header">
 
                     <Grid container display={"flex"} justifyContent={"space-between"} mt={2}>
                         <Grid item><img className="NetflixBG" src={NetflixBG} /></Grid>
                         <Grid item display={"flex"} justifyContent={"space-between"}>
                             <Grid item p={1}>
-                                <Button variant="outlined" color="warning">English</Button>
+                                <Button variant="contained" color="warning">English</Button>
                             </Grid>
                             <Grid item p={1}>
                                 <Button variant="contained" color="error" onClick={onStart}>Get Started</Button>
@@ -46,12 +50,62 @@ const FirstScreen = () => {
                     </Grid>
 
                 </Grid>
-                <Grid className="Enjoy"></Grid>
-                <Grid className="Download"></Grid>
-                <Grid className="Watch"></Grid>
-                <Grid className="Kids"></Grid>
-                <Grid className="FAQ"></Grid>
-                <Grid className="Footer"></Grid>
+                {/* Section for Enjoy  */}
+                <Grid container mt={1} className="Content" display={"flex"} justifyContent={"space-evenly"}>
+                    {/* Section for Text */}
+                    <Grid item className="Text">
+                        <Typography pb={4} variant="h1" textAlign={"center"} color={"snow"}>Enjoy on your TV</Typography>
+                        <Typography variant="h6" color={"snow"}>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</Typography>
+                    </Grid>
+                    <Grid item className="Video">
+                        <Grid item>
+                            <img src={tv} />
+                        </Grid>
+                    </Grid>
+                </Grid>
+                {/* Section for Download */}
+                <Grid container mt={1} className="Content" display={"flex"} justifyContent={"space-evenly"}>
+                    <Grid item>
+                        <Typography p={2} variant="h1" color={"snow"} textAlign={"center"}>Download your shows to watch offline</Typography>
+                        <Typography variant="h6" color={"snow"} textAlign={"center"}>Save your favourites easily and always have something to watch.</Typography>
+                    </Grid>
+
+                    <Grid item>
+                        <img src={DownloadImage} alt="DownloadImage" height={320} width={720} />
+                    </Grid>
+                </Grid>
+
+                {/* Section for Watch Evreywhere  */}
+                <Grid container mt={1} className="Content" display={"flex"} justifyContent={"center"}>
+                    <Grid item>
+                        <Typography p={2} variant="h1" color={"snow"} textAlign={"center"}>Watch everywhere</Typography>
+                        <Typography variant="h6" color={"snow"} textAlign={"center"}>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <img src={DeviceImage} alt="DownloadImage" height={320} width={520} />
+                    </Grid>
+                </Grid>
+
+                {/* Sectionf for Children */}
+                <Grid container mt={1} className="Content" display={"flex"} justifyContent={"center"}>
+                    <Grid item>
+                        <Typography p={2} variant="h1" color={"snow"} textAlign={"center"}>Create profiles for kids</Typography>
+                        <Typography variant="h6" color={"snow"} textAlign={"center"}>Send children on adventures with their favourite characters in a space made just for them—free with your membership.
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <img src={ChildrenImage} alt="DownloadImage" height={320} width={520} />
+                    </Grid>
+                </Grid>
+
+                {/* Section for FAQ */}
+                <Grid container mt={1} className="Content">
+                    <Accordion question={"What is React"} detail={"React is Library"}/>
+                </Grid>
+
+                {/* Sectrion for Footer */}
+                <Grid container mt={1} className="Footer"></Grid>
             </Grid>
         </div>
     )
