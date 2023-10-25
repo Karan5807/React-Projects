@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import tv from "../../assets/SVG/Tv.png";
@@ -10,6 +11,9 @@ import Accordion from "../../assets/Core/Accordion";
 import "./FirstScreen.css";
 
 const FirstScreen = () => {
+
+
+
     const navigate = useNavigate();
     const onStart = () => {
         navigate("/Home");
@@ -100,12 +104,102 @@ const FirstScreen = () => {
                 </Grid>
 
                 {/* Section for FAQ */}
-                <Grid container mt={1} className="Content">
-                    <Accordion question={"What is React"} detail={"React is Library"}/>
+                <Grid container mt={1} className="Content" justifyContent={"center"}>
+                    {/* Section for FAQ */}
+                    <Grid container justifyContent={"center"} mb={3}>
+                        <Typography color={"snow"} variant='h3' textAlign={"center"} fontWeight={800}>Frequently Asked Questions</Typography>
+                    </Grid>
+
+                    {/* SEction for Accordin */}
+                    <Accordion/>
+
+                    {/* Section for Input */}
+                    <Grid container mt={4}>
+                        <Grid container justifyContent={"center"}>
+                            <Typography variant="body" fontSize={20} color={"snow"}>Ready to watch? Enter your email to create or restart your membership.</Typography>
+                        </Grid>
+                        <Grid container className="EmailInput" mt={1} mb={1} display={"flex"}>
+                            <Grid item p={1}>
+                                <input type="email" className="Input" placeholder="Email Address" />
+                            </Grid>
+
+                            <Grid item p={1}>
+                                <Button variant="contained" color="error" onClick={onStart}>Get Started <ArrowForwardIosIcon /></Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
                 </Grid>
 
+
                 {/* Sectrion for Footer */}
-                <Grid container mt={1} className="Footer"></Grid>
+                <Grid container mt={1} className="Content">
+                    <Grid item>
+                        <Typography variant="body" color={"snow"}>Questions? Call 000-800-919-1694</Typography>
+                    </Grid>
+                    {/* Section for Querires */}
+                    <Grid container justifyContent={"space-between"} mt={4}>
+                        <Grid item>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>FAQ</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Investor Reslations</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Privacy</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Speed Test</Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Help Center</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Jobs</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>cookie Prefernces</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Legal Notice</Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Account</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Way to Watchs</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Corporate Information</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Only on Netflix</Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid item>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Media Center</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Terms of Use</Typography>
+                            </Grid>
+                            <Grid item p={1}>
+                                <Typography variant="body" color={"snow"}>Contact Us</Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    {/* Section for Netflix India */}
+                    <Typography variant="body" mt={8} color={"snow"}>Netflix India</Typography>
+                </Grid>
             </Grid>
         </div>
     )
