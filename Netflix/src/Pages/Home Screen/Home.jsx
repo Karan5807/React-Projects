@@ -7,6 +7,7 @@ import ImageCard from "../../assets/Core/ImageCard";
 import { Grid, Typography, Box } from "@mui/material";
 import "./Home.css";
 
+
 function Home() {
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
@@ -14,17 +15,21 @@ function Home() {
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [IsLoading, setLoading] = useState(false);
 
+
     // Section for Popular Movies
-    const imgUrl = "https://image.tmdb.org/t/p/original";
+    const imgUrl = import.meta.env.VITE_IMAGEURL;
+    const upcomingURL = import.meta.env.VITE_UPCOMING_URL;
+    const playingURL = import.meta.env.VITE_PLAYING_URL;
+    const popularURL = import.meta.env.VITE_POPULAR_URL;
+    const ratedURL = import.meta.env.VITE_RATED_URL;
 
-    const upcomingURL = "https://api.themoviedb.org/3/movie/upcoming?api_key=6ee7b20ae718fd1fbaa8ad13ce09d147&language=en-US&page=3";
-
-    const playingURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=6ee7b20ae718fd1fbaa8ad13ce09d147&language=en-US&page=1";
-
-    const popularURL = "https://api.themoviedb.org/3/movie/popular?api_key=6ee7b20ae718fd1fbaa8ad13ce09d147&language=en-US&page=2";
-
-    const ratedURL = "https://api.themoviedb.org/3/movie/top_rated?api_key=6ee7b20ae718fd1fbaa8ad13ce09d147&language=en-US&page=1";
-
+    // Use Effect for Set Loading
+    useEffect(() => {
+        // Simulate an API call
+        setTimeout(() => {
+            setLoading(false); // Set loading to false when data is fetched
+        }, 2000);
+    }, []);
 
     // Use Effect for Upcoming Movies 
     useEffect(() => {
@@ -97,11 +102,13 @@ function Home() {
                         <Grid p={1}>
                             <Typography variant="h4" color={"white"}> Now Playing </Typography>
                         </Grid>
-                        <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
-                            {nowPlayingMovies?.map((item) => (
-                                <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
-                            ))}
-                        </Grid>
+                        {IsLoading ? (<Loader />) : (
+                            <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
+                                {nowPlayingMovies?.map((item) => (
+                                    <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
+                                ))}
+                            </Grid>
+                        )}
                     </Grid>
                 </div>
 
@@ -111,11 +118,13 @@ function Home() {
                         <Grid p={1}>
                             <Typography variant="h4" color={"white"}> Top Rated Movies </Typography>
                         </Grid>
-                        <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
-                            {topRatedMovies?.map((item) => (
-                                <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
-                            ))}
-                        </Grid>
+                        {IsLoading ? (<Loader />) : (
+                            <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
+                                {topRatedMovies?.map((item) => (
+                                    <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
+                                ))}
+                            </Grid>
+                        )}
                     </Grid>
                 </div>
 
@@ -125,11 +134,14 @@ function Home() {
                         <Grid p={1}>
                             <Typography variant="h4" color={"white"}> Popular Movies </Typography>
                         </Grid>
-                        <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
-                            {popularMovies?.map((item) => (
-                                <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
-                            ))}
-                        </Grid>
+                        {IsLoading ? (<Loader />) : (
+                            <Grid item display={"flex"} className="ImageCard" justifyContent={"space-between"} p={1}>
+                                {popularMovies?.map((item) => (
+                                    <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
+                                ))}
+                            </Grid>
+                        )}
+
                     </Grid>
                 </div>
 
@@ -139,11 +151,13 @@ function Home() {
                         <Grid p={1}>
                             <Typography variant="h4" color={"white"}>Up-Coming Movie</Typography>
                         </Grid>
-                        <Grid item className="ImageCard" display={"flex"} justifyContent={"space-between"} p={1}>
-                            {upcomingMovies?.map((item) => (
-                                <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
-                            ))}
-                        </Grid>
+                        {IsLoading ? (<Loader />) : (
+                            <Grid item className="ImageCard" display={"flex"} justifyContent={"space-between"} p={1}>
+                                {upcomingMovies?.map((item) => (
+                                    <ImageCard key={item} ImageUrl={`${imgUrl}/${item.poster_path}`} />
+                                ))}
+                            </Grid>
+                        )}
                     </Grid>
                 </div>
             </Box>
