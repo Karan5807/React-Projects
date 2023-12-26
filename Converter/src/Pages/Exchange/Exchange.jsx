@@ -1,11 +1,13 @@
 import axios from "axios";
+import Header from "../../Core/Header";
 import { useState, useEffect } from "react";
 import { Grid, Typography } from "@mui/material";
 
 function Exchange() {
     const [currencies, setCurrencies] = useState([]);
     const [fromCurrency, setFromCurrency] = useState("");
-    const ExchangeAPI = "http://data.fixer.io/api/latest?access_key=4651da2703bdd5755a3c3644f75f1810&format=1";
+    const [toCurrency, setToCurrency] = useState("");
+    const ExchangeAPI = import.meta.env.VITE_EXCHANGE_API;
 
     useEffect(() => {
         const fetchExAPI = async () => {
@@ -20,17 +22,20 @@ function Exchange() {
     }, []);
 
     const handleFrom = (event) => {
-        console.log(event.target.value);
         setFromCurrency(event.target.value);
     }
 
-    // console.log(currencies, "Curry");
+    const handleTo = (event) => {
+        setToCurrency(event.target.value);
+    }
 
     return (
         <Grid container>
+            {/* <Header/>  */}
             <Grid container>
                 <Typography variant="h6">Exchange your Money Value</Typography>
             </Grid>
+            {/* Section for From Currency */}
             <Grid container>
                 <Grid item>
                     <Typography variant="body"> From </Typography>
@@ -40,6 +45,28 @@ function Exchange() {
                         <option key={value} value={value}>{label}</option>
                     ))}
                 </select>
+            </Grid>
+
+            {/* Section for To Currency */}
+            <Grid container>
+                <Grid item>
+                    <Typography variant="body"> TO </Typography>
+                </Grid>
+                <select value={toCurrency} onChange={handleTo}>
+                    {Object.entries(currencies).map(([label, value]) => (
+                        <option key={value} value={value}>{label}</option>
+                    ))}
+                </select>
+            </Grid>
+
+            {/* Section for Input Amount */}
+            <Grid container>
+                <Grid item>
+                    <Typography variant="body">Amount</Typography>
+                </Grid>
+                <Grid item>
+                    <input type="number" placeholder="Amount" onChange={(e)=>{e.target.value}}/>
+                </Grid>
             </Grid>
         </Grid>
     )

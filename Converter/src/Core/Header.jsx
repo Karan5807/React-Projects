@@ -1,35 +1,34 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import "./Header.css";
 
-const Header = () => {
+function Header() {
+
     return (
-        <Grid container display={"flex"} className='Header'>
-
-            <Grid item>
-                <Typography variant='h6' bgcolor={"#00308F"} color={"white"}>X-Change</Typography>
+        <Grid container>
+            <Grid container bgcolor={"whitesmoke"} display={"flex"} justifyContent={"space-between"} className="Header">
+                <Grid item p={1}>
+                    <Typography color={"#002D62"} fontSize={32} fontFamily={"Style Script"} fontWeight={700}>X-Change</Typography>
+                </Grid>
+                <Grid item p={1} marginRight={2} minWidth={550} display={"flex"} justifyContent={"space-between"}>
+                    <Grid item>
+                        <Link className='Link' to={"/"}>Home</Link>
+                    </Grid>
+                    <Grid item>
+                        <Link className='Link' to={"/ProvidentFund"}>Provident Fund</Link>
+                    </Grid>
+                    <Grid item>
+                        <Link className='Link' to={"/Deposit"}>Deposit</Link>
+                    </Grid>
+                    <Grid item>
+                        <Link className='Link' to={"/MutualFund"}>MutualFund</Link>
+                    </Grid>
+                    <Grid item>
+                        <Link className='Link' to={"/EMI"}>EMI</Link>
+                    </Grid>
+                </Grid>
             </Grid>
-
-            <Grid item display={"flex"} bgcolor={"#00308F"} width={800} justifyContent={"space-evenly"}>
-
-                <Grid item bgcolor={"#00308F"}>
-                    <Link className="Link" to="/EMI"><Typography variant="h6" bgcolor={"#00308F"} color={"snow"}>EMI Calculator</Typography></Link>
-                </Grid>
-
-                <Grid item bgcolor={"#00308F"}>
-                    <Link className="Link" to="/MutualFund"><Typography variant="h6" bgcolor={"#00308F"} color={"snow"}>SIP</Typography></Link>
-                </Grid>
-
-                <Grid item bgcolor={"#00308F"}>
-                    <Link className="Link" to="/ProvidentFund"><Typography variant="h6" bgcolor={"#00308F"} color={"snow"}>Employment Fund</Typography></Link>
-                </Grid>
-
-                <Grid item bgcolor={"#00308F"}>
-                    <Link className="Link" to="/Deposit"><Typography variant="h6" bgcolor={"#00308F"} color={"snow"}>Deposit Fund</Typography></Link>
-                </Grid>
-
-            </Grid>
-        </Grid>
+        </Grid >
     )
 }
 
