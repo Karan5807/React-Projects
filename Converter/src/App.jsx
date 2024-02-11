@@ -4,8 +4,6 @@ import FDandRD from "./Pages/FD & RD/FDandRD";
 import SIPandMF from "./Pages/SIP & MF/SIPandMF";
 import EMICalculator from './Pages/EMI/EMICalculator';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css';
-
 function App() {
 
   return (
