@@ -4,6 +4,7 @@ import Header from "../../Core/Header";
 import AmountInput from "../../Core/InputAmount";
 import CountryBox from "../../Core/Select";
 import OutputAmount from "../../Core/OutputAmount";
+import ExchangeButton from "../../Core/ExchangeButton";
 import { useState, useEffect } from "react";
 import { Grid, Typography } from "@mui/material";
 
@@ -46,6 +47,8 @@ function Exchange() {
         {/* Section for From Currency */}
         <CountryBox value={fromCurrency} setValue={setFromCurrency}/>
 
+        {/* Section for Exchange Button */}
+        <ExchangeButton size="large"/>
         {/* Section for To Currency */}
         <CountryBox value={toCurrency} setValue={setToCurrency}/>
       </Grid>
