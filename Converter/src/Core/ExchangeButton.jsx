@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 
 function ExchangeButton() {
   return (
-    <Button onClick={}><RepeatOnIcon/></Button>
+    <Button><RepeatOnIcon/></Button>
   )
 }
 
