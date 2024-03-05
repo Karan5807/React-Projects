@@ -1,40 +1,56 @@
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React, {useState} from "react";
 import Header from "../../Core/Header";
-import Box from '@mui/material/Box';
 import Stack from "@mui/material/Stack";
-import Slider from "@mui/material/Slider";
 import SliderComp from "../../Core/Slider";
-import VolumeDown from "@mui/icons-material/VolumeDown";
-import VolumeUp from "@mui/icons-material/VolumeUp";
 
 function EMICalculator() {
-  const [newvalue, setNewValue] = useState(100000);
-  const [rate, setRate] = useState(8);
+
+  
+  const [principal, setPrincipal] = useState(1000000);
+  const [Rate, setRate] = useState(10);
   const [year, setYear] = useState(5);
 
   const handleChange = (value) => {
-    setNewValue(value);
+    setPrincipal(value);
   };
   const handleRate = (value) =>{
-    setRate(rate);
+    setRate(value);
   };
   const handleYear = (value) =>{
-    setYear(year);
+    setYear(value);
   };
+    const month = year * 12;
+ 
+    const monthlyIntrestRate = ((Rate/12)/100).toFixed(4);
+    console.log(monthlyIntrestRate);
+    const MonthlyIntrestAmt = monthlyIntrestRate * principal;
+    console.log(MonthlyIntrestAmt);
+  
+    let v1 = 1+parseFloat(monthlyIntrestRate);
+    console.log(v1);
+  
   return (
-    <Box>
+    <Stack>
       <Header/>
-      <Grid item>
-        <SliderComp descrption={"Loan Amount"}  min={100000} max={1000000} value={newvalue} onChange={handleChange}/>
+
+      <Stack m={5}>
+      <Grid item p={2}>
+        <SliderComp descrption={"Loan Amount"} Sign={"₹"}  min={100000} max={10000000} value={principal} onChange={handleChange}/>
       </Grid>
-      <Grid item>
-        <SliderComp descrption={"Rate of Intrest %(P.A)"} min={1} max={30} value={rate} onChange={handleRate}/>
+      <Grid item p={2}>
+        <SliderComp descrption={"Rate of Intrest %(P.A)"} Sign={"%"} min={1.0} max={30} value={Rate} onChange={handleRate}/>
       </Grid>
-      <Grid item>
-        <SliderComp descrption={"Loan Tenure"} min={1} max={30} value={year} onChange={handleYear}/>
+      <Grid item p={2}>
+        <SliderComp descrption={"Loan Tenure"} min={1} max={30} Sign={"Year"} value={year} onChange={handleYear}/>
       </Grid>
-    </Box>
+      </Stack>
+      
+      <Grid container display={"flex"} justifyContent={"space-between"}>
+        <Typography>Monthly EMI</Typography>
+        <Typography>{}</Typography>
+      </Grid>
+    </Stack>
   );
 }
 
