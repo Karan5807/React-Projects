@@ -4,6 +4,7 @@
   text-align: center;
 }
 .Comp{
+  display: block;
   padding: 0.5rem;
 }
 .Heading{
@@ -12,5 +13,6 @@
 }
 .Error{
   color: red;
-  border: yellowgreen;
+  display: flex;
+  flex-direction: column;
 }

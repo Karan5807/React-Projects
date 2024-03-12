@@ -3,14 +3,6 @@ import './App.css';
 
 const ValidateForm = () => {
 
-  const Login = () =>{
-    <p>Login succesfully</p>
-  }
-
-  const ReLogin = () =>{
-    <p>Login Faild</p>
-  }
-
   const [formData, setFormData] = useState({
     firstName:"",
     lastName:"",
