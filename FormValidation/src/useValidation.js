@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useValidation = (callback) => {
+const useValidation = () =>{
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -10,25 +10,45 @@ const useValidation = (callback) => {
     return pattern.test(url);
   }
 
+  function isValidPhnNum(phoneNumber){
+    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    return phoneRegex.test(phoneNumber);
+  }
+
+  function validatePassword(password) {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  }
+
+  function validEmail(email){
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  }
+
+  function validAge(age){
+    const regex = age >= 18 && age<=100;
+    return regex.test(age);
+  }
+
   const validate = (name, value) => {
     switch (name) {
-      case "interviewer":
+      case "firstName":
         if (!value || value.length === 0) {
-          setErrors({ ...errors, interviewer: "Please select an option" });
+          setErrors({ ...errors, firstName: "Please fill First Name" });
         } else {
-          let newObj = omit(errors, "interviewer");
+          let newObj = omit(errors, "firstName");
           setErrors(newObj);
         }
         break;
 
-      case "jobId":
-        if (value === "select" || !value) {
-          setErrors({ ...errors, jobId: "Please select an option" });
-        } else {
-          let newObj = omit(errors, "jobId");
-          setErrors(newObj);
-        }
-        break;
+        case "lastName":
+          if (!value || value.length === 0) {
+            setErrors({ ...errors, lastName: "Please fill First Name" });
+          } else {
+            let newObj = omit(errors, "lastName");
+            setErrors(newObj);
+          }
+          break;  
 
       case "date":
         if (!value || value === "") {
@@ -39,63 +59,13 @@ const useValidation = (callback) => {
         }
         break;
 
-      case "applicantId":
-        if (!value || value === "select") {
-          setErrors({ ...errors, applicantId: "Please select an option" });
+      case "email":
+        if (!value || value.length === 0) {
+          setErrors({ ...errors, email: "Please fill the Email Address" });
         } else if (typeof value === "string") {
-          let newObj = omit(errors, "applicantId");
+          let newObj = omit(errors, "email");
           setErrors(newObj);
         }
-        break;
-
-      case "interviewLevel":
-        if (!value || value === "select") {
-          setErrors({ ...errors, interviewLevel: "Please select an option" });
-        } else if (typeof value === "string") {
-          let newObj = omit(errors, "interviewLevel");
-          setErrors(newObj);
-        }
-        break;
-      case "interviewMode":
-        if (!value || value === "select") {
-          setErrors({ ...errors, interviewMode: "Please select an option" });
-        } else if (typeof value === "string") {
-          let newObj = omit(errors, "interviewMode");
-          setErrors(newObj);
-        }
-        break;
-
-      case "recruiter":
-        if (!value || value === "select") {
-          setErrors({ ...errors, recruiter: "Please select an option" });
-        } else if (typeof value === "string") {
-          let newObj = omit(errors, "recruiter");
-          setErrors(newObj);
-        }
-        break;
-
-      case "meetLink":
-        if (!value) {
-          setErrors({ ...errors, meetLink: "Please fill the details" });
-        } else if (!/\S+@\S+\.\S+/.test(value)) {
-          setErrors({ ...errors, meetLink: "Please enter valid email" });
-        } else if (typeof value == "string") {
-          let newObj = omit(errors, "meetLink");
-          setErrors(newObj);
-        }
-        break;
-
-      case "interviewEmail":
-        if (!values[name]) {
-          setErrors({
-            ...errors,
-            interviewEmail: "Please fill the details",
-          });
-        } else if (typeof values[name] === "string") {
-          let newObj = omit(errors, "interviewEmail");
-          setErrors(newObj);
-        }
-
         break;
 
       case "phoneNumber":
@@ -104,7 +74,7 @@ const useValidation = (callback) => {
             ...errors,
             phoneNumber: "Please fill the details",
           });
-        } else if (!/^\+91(\s?\d{5}){2}\s*$/.test(value)) {
+        } else if (isValidPhnNum(value)) {
           setErrors({
             ...errors,
             phoneNumber:
@@ -115,61 +85,73 @@ const useValidation = (callback) => {
           setErrors(newObj);
         }
         break;
-      case "alternateMobileNo":
+
+      case "password":
         if (!value) {
           setErrors({
             ...errors,
-            alternateMobileNo: "Please fill the details",
+            password: "Please fill the Password",
           });
-        } else if (!/^\+91(\s?\d{5}){2}\s*$/.test(value)) {
+        } else if (validatePassword(value)) {
           setErrors({
             ...errors,
-            alternateMobileNo:
-              "Please enter a valid 10-digit Mobile Number with country code (+91)",
+            password:
+              "Password must be 8 Character Long Contain 1 Upper Case , 1 Lower Case, at least one Symbol, and Number",
           });
         } else {
-          let newObj = omit(errors, "alternateMobileNo");
-          setErrors(newObj);
-        }
-        break;
-      case "fromtime":
-        if (!value) {
-          setErrors({
-            ...errors,
-            fromtime: "Please fill the details",
-          });
-        } else if (typeof value === "string") {
-          let newObj = omit(errors, "fromtime");
-          setErrors(newObj);
-        }
-        break;
-      case "totime":
-        if (!value) {
-          setErrors({
-            ...errors,
-            totime: "Please fill the details",
-          });
-        } else if (typeof value === "string") {
-          let newObj = omit(errors, "totime");
-          setErrors(newObj);
-        }
-        break;
-      case "meetingUrl":
-        if (!value || !validateUrl(value)) {
-          setErrors({
-            ...errors,
-            meetingUrl: "Please enter a valid website URL",
-          });
-        } else {
-          let newObj = omit(errors, "meetingUrl");
+          let newObj = omit(errors, "password");
           setErrors(newObj);
         }
         break;
 
+        case "confirmPassword":
+          if (!value) {
+            setErrors({
+              ...errors,
+              confirmPassword: "Please fill the Password",
+            });
+          } else if (validatePassword(value)) {
+            setErrors({
+              ...errors,
+              confirmPassword:
+                "Password did Not Match",
+            });
+          } else {
+            let newObj = omit(errors, "confirmPassword");
+            setErrors(newObj);
+          }
+          break;
+      
+
+        case "gender":
+          if (!value) {
+            setErrors({ ...errors, gender: "Please select an option" });
+          } else if (typeof value === "string") {
+            let newObj = omit(errors, "gender");
+            setErrors(newObj);
+          }
+          break;
+        
+        case "age":
+          if(!value){
+            setErrors({...errors, age:"Please Enter Age"});
+          }
+          else if (validAge(value)) {
+            setErrors({
+              ...errors,
+              age:"Password did Not Match",
+            });
+          }  
+          else{
+            let newObj = omit(errors, "age");
+            setErrors(newObj);
+          }
+          break;
       default:
         break;
     }
   };
+
   const handleChange = (e, value, newVal, label) => {
     let name = newVal === true ? label : e.target?.name;
     let val = newVal === true ? value : e.target?.value;
@@ -183,59 +165,6 @@ const useValidation = (callback) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const mandatoryFields = [
-      "interviewer",
-      "jobId",
-      "applicantId",
-      "interviewMode",
-      "interviewLevel",
-      "date",
-      "recruiter",
-      "fromtime",
-      "totime",
-    ];
-
-    const emptyFields = mandatoryFields.filter((fieldName) => {
-      const value = values[fieldName];
-      if (
-        fieldName === "totime" ||
-        fieldName === "fromtime" ||
-        fieldName === "jobId"
-      ) {
-        return !values.hasOwnProperty(fieldName) || !value;
-      } else if (fieldName === "interviewer") {
-        return !values.hasOwnProperty(fieldName) || value.length === 0;
-      } else {
-        // Handle other input fields
-        return (
-          !values.hasOwnProperty(fieldName) ||
-          typeof value !== "string" ||
-          value.trim() === ""
-        );
-      }
-    });
-
-    if (emptyFields.length > 0) {
-      // Show toast message for empty fields
-      toast(t("Please_fill"));
-
-      // Set red borders for empty fields
-      const emptyFieldErrors = emptyFields.reduce((acc, fieldName) => {
-        return {
-          ...acc,
-          [fieldName]: "Please fill the details",
-        };
-      }, {});
-      setErrors((prev) => {
-        return {
-          ...prev,
-          ...emptyFieldErrors,
-        };
-      });
-
-      return;
-    }
-
     const newErrors = {};
     for (const [name, value] of Object.entries(values)) {
       const validationError = validate(name, value);
@@ -246,7 +175,7 @@ const useValidation = (callback) => {
     setErrors(newErrors);
 
     if (Object.keys(errors).length > 0) {
-      toast(t("Please_Enter"));
+      console.log("Please Enter All details");
       setErrors(errors);
     } else {
       callback();
@@ -256,11 +185,11 @@ const useValidation = (callback) => {
   return {
     values,
     errors,
-    handleChange,
     setErrors,
-    handleSubmit,
     setValues,
+    handleChange,
+    handleSubmit
   };
 };
 
-export default useInterviewScheduleValidation;
+export default useValidation;
