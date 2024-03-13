@@ -54,29 +54,29 @@ const ValidateYupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const nonParsed = {
-      firstName: "Karan",
-      lastName: "Singh",
-      email: "Abc@example.com",
-      phoneNumber: "1231234218",
-      password: "123456Qq*",
-      confirmPassword: "123456Qq*",
-      age: "18",
-      gender: "male",
-      interests: ["coding"],
-      birthDate: "2024-02-12",
-    };
+    // const nonParsed = {
+    //   firstName: "Karan",
+    //   lastName: "Singh",
+    //   email: "Abc@example.com",
+    //   phoneNumber: "1231234218",
+    //   password: "123456Qq*",
+    //   confirmPassword: "123456Qq*",
+    //   age: "18",
+    //   gender: "male",
+    //   interests: ["coding"],
+    //   birthDate: "2024-02-12",
+    // };
 
-    const parsedUser = validationSchema.cast(nonParsed);
+    // const parsedUser = validationSchema.cast(nonParsed);
 
-    console.log(nonParsed, parsedUser);
+    // console.log(nonParsed, parsedUser);
 
     try {
       await validationSchema.validate(formData, {abortEarly: false});
       console.log("Form Submitted", formData);
     } catch (error) {
-      const newErrors = {};
 
+      const newErrors = {};
       error.inner.forEach((err) => {
         newErrors[err.path] = err.message;
       });
@@ -245,9 +245,9 @@ const ValidateYupForm = () => {
           placeholder="Enter your date of birth"
           onChange={handleChange}
         />
-        {errorData.birthDate && <div className="error">{errorData.birthDate}</div>}
+        {errorData.birthDate && (<div className="error">{errorData.birthDate}</div>)}
       </div>
-      <button type="submit" onClick={handleChange}>Submit</button>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 };
