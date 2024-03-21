@@ -5,8 +5,8 @@ import ValidateYupForm from "./ValidationYupForm";
 
 function App() {
   return (
-    <div>
-      {/* <ValidateForm/> */}
+    <div className="App">
+      <ValidateForm/>
       <ValidateYupForm/>
     </div>
   );

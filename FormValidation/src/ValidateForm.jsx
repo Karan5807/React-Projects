@@ -137,55 +137,60 @@ const ValidateForm = () => {
   }
 
   return (
-    <div>
-      <h2 className='Heading'>Form Validation</h2>
-      <div className='Comp'>
-        <label>First Name:</label>
+    <div className='All'>
+      <h2 className='Heading'>Form Validation No Packages</h2>
+      <div className='withValidation'>
+        <label className='Label'>First Name:</label>
         <input
+        className='Input'
         type='text'
         name='firstName'
-        placeholder='Enter Your First Name'
+        placeholder='Enter Your first name'
         onChange={handleChange}
         value={formData.firstName}
         />
         {errorData.firstName && <p className='Error'>{errorData.firstName}</p>}
       </div>
-      <div className='Comp'>
-        <label>Last Name:</label>
+      <div className='withValidation'>
+        <label className='Label'>Last Name:</label>
         <input
+        className='Input'
         type='text'
         name='lastName'
-        placeholder='Enter Your Last Name'
+        placeholder='Enter Your last name'
         onChange={handleChange}
         value={formData.lastName}
         />
         {errorData.lastName && <p className='Error'>{errorData.lastName}</p>}
       </div>
-      <div className='Comp'>
-        <label>Email:</label>
+      <div className='withValidation'>
+        <label className='Label'>Email:</label>
         <input
+        className='Input'
         type="email"
         name='email'
-        placeholder='Enter Your Email'
+        placeholder='Enter your email'
         onChange={handleChange}
         value={formData.email}
         />
         {errorData.email && <p className='Error'>{errorData.email}</p>}
       </div>
-      <div className='Comp'>
-        <label>Phone Number:</label>
+      <div className='withValidation'>
+        <label className='Label'>Phone Number:</label>
         <input
+        className='Input'
         type="number"
         name='phoneNumber'
-        placeholder='Enter Your Phone Number'
+        placeholder='Enter Your phone number'
         onChange={handleChange}
         value={formData.phoneNumber}
         />
         {errorData.phoneNumber && <p className='Error'>{errorData.phoneNumber}</p>}
       </div>
-      <div className='Comp'>
-        <label>Password:</label>
+      <div className='withValidation'>
+        <label className='Label'>Password:</label>
         <input
+        className='Input'
         type='text'
         name='password'
         placeholder='Enter your Password'
@@ -194,20 +199,21 @@ const ValidateForm = () => {
         />
         {errorData.password && <p className='Error'>{errorData.password}</p>}
       </div>
-      <div className='Comp'>
-        <label>Confirm Password:</label>
+      <div className='withValidation'>
+        <label className='Label'>Confirm Password:</label>
         <input
+        className='Input'
         type="password"
         name='confirmPassword'
-        placeholder='Confirm Password'
+        placeholder='Confirm your password'
         onChange={handleChange}
         value={formData.confirmPassword}
         />
         {errorData.confirmPassword && <p className='Error'>{errorData.confirmPassword}</p>}
       </div>
-      <div className='Comp'>
-        <label>Gender:</label>
-        <select name='gender' value={formData.gender} onChange={handleChange}>
+      <div className='withValidation'>
+        <label className='Label'>Gender:</label>
+        <select className='Input' name='gender' value={formData.gender} onChange={handleChange}>
           <option value="select">Select Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -215,9 +221,11 @@ const ValidateForm = () => {
         </select>
         {errorData.gender && <p className='Error'>{errorData.gender}</p>}
       </div>
-      <div className='Comp'>
-        <label>Age:</label>
+      <div className='withValidation'>
+        <label className='Label'>Age:</label>
         <input
+        className='Input'
+        placeholder='Enter your age'
         type="number"
         name='age'
         value={formData.age}
@@ -225,24 +233,27 @@ const ValidateForm = () => {
         />
         {errorData.age && <p className='Error'>{errorData.age}</p>}
       </div>
-      <div className='Comp'>
-        <label>Interest:</label>
-        <label>Coding</label>
+      <div className='withValidation'>
+        <label className='Label'>Interest:</label>
+        <label className='Label'>Coding</label>
         <input
+        className='Input'
         type="checkbox"
         name='interest'
         onChange={handleCheckboxChange}
         value={formData.interest.includes("Coding")}
         />
-        <label>Cooking</label>
+        <label className='Label'>Cooking</label>
         <input
+        className='Input'
         type="checkbox"
         name='interest'
         onChange={handleCheckboxChange}
         value={formData.interest.includes("Cooking")}
         />
-        <label>Swimming</label>
+        <label className='Label'>Swimming</label>
         <input
+        className='Input'
         type="checkbox"
         name='interest'
         onChange={handleCheckboxChange}
@@ -250,9 +261,10 @@ const ValidateForm = () => {
         />
         {errorData.intrest && <p className='Error'>{errorData.intrest}</p>}
       </div>
-      <div className='Comp'>
-        <label>Birth Date:</label>
+      <div className='withValidation'>
+        <label className='Label'>Birth Date:</label>
         <input
+        className='Input'
         type="date"
         name='birthDate'
         onChange={handleChange}
@@ -261,8 +273,8 @@ const ValidateForm = () => {
         {errorData.birthDate && <p className='Error'>{errorData.birthDate}</p>}
       </div>
 
-      <div className='Comp'>
-        <button type="submit" onClick={handleSubmit}>Submit</button>
+      <div className='withValidation'>
+        <button className='Button' type="submit" onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   )
