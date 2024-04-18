@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./Exchange.css";
 import Header from "../../Core/Header";
-import AmountInput from "../../Core/InputAmount";
+import AmountInput from "../../Core/AmountInput";
 import CountryBox from "../../Core/Select";
 import OutputAmount from "../../Core/OutputAmount";
 import ExchangeButton from "../../Core/ExchangeButton";

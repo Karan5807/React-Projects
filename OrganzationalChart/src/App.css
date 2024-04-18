@@ -13,16 +13,4 @@
   background-color: #fff;
 }
 
-.team-member-card img {
-  max-width: 100%;
-  border-radius: 50%;
-}
 
-.team-member-card h2 {
-  margin: 10px 0;
-  font-size: 1.5rem;
-}
-
-.team-member-card p {
-  color: #555;
-}

@@ -15,7 +15,7 @@ const AmountInput = () => {
   };
 
   return (
-    <Grid>
+    <div>
       <TextField 
       id="outlined-basic" 
       label="Enter Amount" 
@@ -25,7 +25,7 @@ const AmountInput = () => {
       placeholder="Enter a valid amount"
       style={{ borderColor: isValid ? 'green' : 'red' }} />
       {!isValid && <p style={{ color: 'red' }}>Please enter a valid amount.</p>}
-    </Grid>
+    </div>
   );
 };
 
