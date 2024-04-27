@@ -3,6 +3,7 @@ const demoData =
         {
             "name": "TechCorp Solutions",
             "founded_year": 2005,
+            "ceo":"John Doe",
             "industry": "Information Technology",
             "employees": [
                 {
@@ -47,7 +48,7 @@ const demoData =
                     "last_name": "Srivastava",
                     "email": "jane.smith@example.com",
                     "department": "Marketing",
-                    "Level":3,
+                    "Level":2,
                     "position": "Marketing Manager",
                     "manager_id": "MM301",
                     "hire_date": "2019-08-03",
@@ -168,7 +169,7 @@ const demoData =
                     "email": "lubhna@example.com",
                     "department": "Marketing",
                     "position": "Marketing Officer",
-                    "Level":"Five",
+                    "Level":5,
                     "manager_id": "MO401",
                     "hire_date": "2018-02-10",
                     "salary": 100000
@@ -180,7 +181,7 @@ const demoData =
                     "email": "dhawan.satish@example.com",
                     "department": "Marketing",
                     "position": "Marketing Officer",
-                    "Level":"Five",
+                    "Level":5,
                     "manager_id": "MO401",
                     "hire_date": "2015-09-20",
                     "salary": 120000
@@ -192,7 +193,7 @@ const demoData =
                     "email": "jane.smith@example.com",
                     "department": "Marketing",
                     "position": "Marketing Officer",
-                    "Level":"Five",
+                    "Level":5,
                     "manager_id": "MO401",
                     "hire_date": "2019-08-03",
                     "salary": 90000
