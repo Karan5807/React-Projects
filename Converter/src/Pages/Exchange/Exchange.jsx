@@ -1,4 +1,5 @@
 import axios from "axios";
+import useAxios from "../../Core/useAxios";
 import "./Exchange.css";
 import Header from "../../Core/Header";
 import AmountInput from "../../Core/AmountInput";
@@ -17,7 +18,7 @@ function Exchange() {
   useEffect(() => {
     const fetchExAPI = async () => {
       try {
-        const response = await axios.get(ExchangeAPI);
+        const response = await useAxios.get(ExchangeAPI);
         setCurrencies(response.data.rates);
       } catch (error) {
         console.error("There is Error in Fetching API");
@@ -38,8 +39,11 @@ function Exchange() {
     <div>
       <Header />
 
-      <Grid container>
+      <div>
+        <div>
         <Typography variant="h6">Exchange your Money Value</Typography>
+        </div>
+        
 
         {/* Section for Input Amount */}
         <AmountInput />
@@ -51,7 +55,7 @@ function Exchange() {
         <ExchangeButton size="large"/>
         {/* Section for To Currency */}
         <CountryBox value={toCurrency} setValue={setToCurrency}/>
-      </Grid>
+      </div>
       
       <Grid container>
         <OutputAmount/>
