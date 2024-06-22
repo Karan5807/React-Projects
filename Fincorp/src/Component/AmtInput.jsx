@@ -1,4 +1,3 @@
-// src/components/CurrencyInput.js
 import React from 'react';
 
 const CurrencyInput = ({ amount, onAmountChange }) => {

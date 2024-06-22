@@ -1,4 +1,3 @@
-// src/components/CurrencySelector.js
 import React from 'react';
 
 const CurrencySelector = ({ currencies, selectedCurrency, onCurrencyChange }) => {
