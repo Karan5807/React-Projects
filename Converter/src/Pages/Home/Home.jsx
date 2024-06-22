@@ -1,12 +1,12 @@
 import React from 'react';
 import Header from '../../Core/Header';
 
-function FDandRD() {
+function Home() {
   return (
     <div>
-      <Header/>
+        <Header/>
     </div>
   )
 }
 
-export default FDandRD;
+export default Home;

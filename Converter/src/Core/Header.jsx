@@ -18,6 +18,9 @@ function Header() {
                         <Link className='Link' to={"/"} >Home</Link>
                     </Grid>
                     <Grid item fontSize={22}>
+                        <Link className='Link' to={"/Exchange"}>Exchange</Link>
+                    </Grid>
+                    <Grid item fontSize={22}>
                         <Link className='Link' to={"/ProvidentFund"}>Provident Fund</Link>
                     </Grid>
                     <Grid item fontSize={22}>

@@ -3,6 +3,7 @@ import EPFandPPF from "./Pages/EPF & PPF/EPFandPPF";
 import FDandRD from "./Pages/FD & RD/FDandRD";
 import SIPandMF from "./Pages/SIP & MF/SIPandMF";
 import EMICalculator from './Pages/EMI/EMICalculator';
+import Home from "./Pages/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
 
@@ -10,7 +11,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Exchange />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Exchange" element={<Exchange/>} />
           <Route path="/ProvidentFund" element={<EPFandPPF />} />
           <Route path="/Deposit" element={<FDandRD />} />
           <Route path="/MutualFund" element={<SIPandMF />} />

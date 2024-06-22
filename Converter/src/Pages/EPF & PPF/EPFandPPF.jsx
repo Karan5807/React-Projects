@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from '../../Core/Header';
 
 function EPFandPPF() {
   return (
-    <div>EPFandPPF</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 

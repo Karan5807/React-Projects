@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from '../../Core/Header';
 
 function SIPandMF() {
   return (
-    <div>SIPandMF</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
