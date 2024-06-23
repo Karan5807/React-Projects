@@ -3,30 +3,30 @@ import { Link } from 'react-router-dom';
 function Header() {
 
     return (
-        <div container display={"flex"} justifyContent={"space-between"} className='header' p={1}>
+        <div className='container flex relative'>
                 {/* Company Title */}
-                <div item>
+                <div className='container'>
                     <img src={""} alt='Logo' style={{ maxWidth: '35%', height: '90%' }}/>
                 </div>
 
                 {/* Navigation Option */}
-                <div item p={1} display={"flex"} minWidth={600} fontStyle={"Montserrat"} justifyContent={"space-between"}>
-                    <div item fontSize={22}>
-                        <Link className='Link' to={"/"} >Home</Link>
+                <div className='container flex relative'>
+                    <div className='container'>
+                        <Link className='Link' to={"/"}>Home</Link>
                     </div>
-                    <div item fontSize={22}>
+                    <div className='container'>
                         <Link className='Link' to={"/Exchange"}>Exchange</Link>
                     </div>
-                    <div item fontSize={22}>
-                        <Link className='Link' to={"/ProvidentFund"}>Provident Fund</Link>
+                    <div className='container'>
+                        <Link className='Link' to={"/ProvidentFund"}>Provident</Link>
                     </div>
-                    <div item fontSize={22}>
+                    <div className='container'>
                         <Link className='Link' to={"/Deposit"}>Deposit</Link>
                     </div>
-                    <div item fontSize={22}>
+                    <div className='container'>
                         <Link className='Link' to={"/MutualFund"}>MutualFund</Link>
                     </div>
-                    <div item fontSize={22}>
+                    <div className='container'>
                         <Link className='Link' to={"/EMI"}>EMI</Link>
                     </div>
                 </div>

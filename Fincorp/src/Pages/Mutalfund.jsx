@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from '../Component/Header';
 
 function Mutalfund() {
   return (
-    <div>Mutalfund</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 

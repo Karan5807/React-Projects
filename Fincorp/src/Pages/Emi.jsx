@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Header from '../Component/Header';
 
 function Emi() {
   return (
-    <div>Emi</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
