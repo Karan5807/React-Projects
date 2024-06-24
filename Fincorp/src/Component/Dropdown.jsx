@@ -10,6 +10,7 @@ const CurrencySelector = ({ countries, selectedCurrency, onCurrencyChange }) => 
           </option>
         ))}
       </select>
+      
     </div>
   );
 };
