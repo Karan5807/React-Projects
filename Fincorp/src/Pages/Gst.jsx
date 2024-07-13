@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import Header from '../Component/Header';
 
-function Home() {
+function Gst() {
   return (
     <div>
-      <Header/>
+        <Header/>
     </div>
   )
 }
 
-export default Home;
+export default Gst;

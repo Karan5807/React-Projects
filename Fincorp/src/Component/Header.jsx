@@ -29,6 +29,9 @@ function Header() {
                     <div className='container'>
                         <Link className='Link' to={"/EMI"}>EMI</Link>
                     </div>
+                    <div className='container'>
+                        <Link className='Link' to={"/GST"}>GST</Link>
+                    </div>
                 </div>
         </div> 
     )

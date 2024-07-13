@@ -19,9 +19,9 @@ function Emi() {
   const intrest = rate/12/100;
   const tenure = year*12;
 
-  const EMI = ([amount*intrest* Math.pow(1+intrest,tenure)]/[Math.pow(1+intrest,tenure)-1]).toFixed(2);
-  const totalAmt = (EMI*tenure).toFixed(2);
-  const totalIntrest = (totalAmt-amount).toFixed(2);
+  const EMI = Math.ceil([amount*intrest* Math.pow(1+intrest,tenure)]/[Math.pow(1+intrest,tenure)-1]);
+  const totalAmt = Math.ceil(EMI*tenure);
+  const totalIntrest = Math.ceil(totalAmt-amount);
 
   const data = {
     labels: [

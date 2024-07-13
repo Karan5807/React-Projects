@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Mutalfund from "./Pages/Mutalfund";
 import Providentfund from "./Pages/Providentfund";
 import Recuring from "./Pages/Recuring";
+import Gst from "./Pages/Gst";
 import './App.css'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/Deposit" element={<Recuring />} />
           <Route path="/MutualFund" element={<Mutalfund />} />
           <Route path="/EMI" element={<Emi />} />
+          <Route path="/GST" element={<Gst/>} />
         </Routes>
       </Router>
     </div>
