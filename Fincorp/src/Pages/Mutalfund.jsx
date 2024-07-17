@@ -10,6 +10,11 @@ function Mutalfund() {
   const [rate, setRate] = useState(12);
   const [year, setYear] = useState(10);
   const [toggle, setToggle] = useState(false);
+  const [activeTab, setActiveTab] = useState("SIP");
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
 
   const intrest = rate / 12 / 100;
   const r = rate / 100;
@@ -93,97 +98,114 @@ function Mutalfund() {
     setToggle(!toggle);
   };
 
-  if (toggle) {
-    return (
-      <div>
-        <Header />
-        <div className="container border border-r-4 border-b-4 flex">
-          <button onClick={handleToggle}>{toggle ? "Sip" : "Lumpsum"}</button>
-          <p>Monthly investment</p>
-          <p>{amount}</p>
-          <input
-            type="range"
-            min={500}
-            max={1000000}
-            step={1}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <p>Return Rate</p>
-          {rate}
-          <input
-            type="range"
-            min={1}
-            max={30}
-            step={1}
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          />
-          <p>Year of Tenure</p>
-          {year}
-          <input
-            type="range"
-            min={1}
-            max={30}
-            step={1}
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-          />
-          <div className="container-md">
-            <Doughnut style={{ width: 300, height: 300 }} data={data} />
-          </div>
-        </div>
-        <p>{investAmt}</p>
-        <p>{intrestAmt}</p>
-        <p>{returnAmt}</p>
+  return (
+    <div className="container">
+      <Header />
+      <div className="tab-buttons">
+        <button
+          className={activeTab === "SIP" ? "active" : ""}
+          onClick={() => handleTabClick("SIP")}
+        >
+          SIP
+        </button>
+        <button
+          className={activeTab === "Lumpsum" ? "active" : ""}
+          onClick={() => handleTabClick("Lumpsum")}
+        >
+          Lumpsum
+        </button>
       </div>
-    );
-  } else {
-    return (
-      <div>
-        <Header />
-        <div className="container border border-r-4 border-b-4 flex">
-          <button onClick={handleToggle}>{toggle ? "Sip" : "Lumpsum"}</button>
-          <p>Monthly investment</p>
-          <p>{amount}</p>
-          <input
-            type="range"
-            min={500}
-            max={1000000}
-            step={1}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <p>Return Rate</p>
-          {rate}
-          <input
-            type="range"
-            min={1}
-            max={30}
-            step={1}
-            value={rate}
-            onChange={(e) => setRate(e.target.value)}
-          />
-          <p>Year of Tenure</p>
-          {year}
-          <input
-            type="range"
-            min={1}
-            max={30}
-            step={1}
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-          />
-          <div className="container-md">
-            <Doughnut style={{ width: 300, height: 300 }} data={lumpSumData} />
+      <div className="tab-content">
+        {activeTab === "SIP" && (
+          <div className="container">
+            <div className="container border border-r-4 border-b-4 flex">
+              <p>Monthly investment</p>
+              <p>{amount}</p>
+              <input
+                type="range"
+                min={500}
+                max={1000000}
+                step={1}
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              <p>Return Rate</p>
+              {rate}
+              <input
+                type="range"
+                min={1}
+                max={30}
+                step={1}
+                value={rate}
+                onChange={(e) => setRate(e.target.value)}
+              />
+              <p>Year of Tenure</p>
+              {year}
+              <input
+                type="range"
+                min={1}
+                max={30}
+                step={1}
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+              />
+              <div className="container-md">
+                <Doughnut style={{ width: 300, height: 300 }} data={data} />
+              </div>
+            </div>
+            <p>{investAmt}</p>
+            <p>{intrestAmt}</p>
+            <p>{returnAmt}</p>
           </div>
-        </div>
-        <p>{amount}</p>
-        <p>{lumpsumIntrestAmt}</p>
-        <p>{lumpsumReturnAmt}</p>
+        )}
+        {activeTab === "Lumpsum" && (
+          <div>
+            <div className="container border border-r-4 border-b-4 flex">
+              <p>Monthly investment</p>
+              <p>{amount}</p>
+              <input
+                type="range"
+                min={500}
+                max={1000000}
+                step={1}
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              <p>Return Rate</p>
+              {rate}
+              <input
+                type="range"
+                min={1}
+                max={30}
+                step={1}
+                value={rate}
+                onChange={(e) => setRate(e.target.value)}
+              />
+              <p>Year of Tenure</p>
+              {year}
+              <input
+                type="range"
+                min={1}
+                max={30}
+                step={1}
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
+              />
+              <div className="container-md">
+                <Doughnut
+                  style={{ width: 300, height: 300 }}
+                  data={lumpSumData}
+                />
+              </div>
+            </div>
+            <p>{amount}</p>
+            <p>{lumpsumIntrestAmt}</p>
+            <p>{lumpsumReturnAmt}</p>
+          </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Mutalfund;
