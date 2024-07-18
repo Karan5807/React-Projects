@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AmtOutput = ({ value }) => {
+const AmtOutput = ({ amount, fromCurrency, toCurrency, value }) => {
   return (
-    <p className='container text-3xl'>{value}</p>
+    <h6 className='container text-3xl text-center'>{amount} {fromCurrency} = {value} {toCurrency}</h6>
   );
 };
 

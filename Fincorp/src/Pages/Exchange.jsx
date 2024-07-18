@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { RiSwap2Fill } from "react-icons/ri";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import { useState, useEffect } from 'react';
 import AmtInput from "../Component/AmtInput";
 import AmtOutput from '../Component/AmtOutput';
@@ -54,14 +54,34 @@ function Exchange() {
     )
   }
   return (
-    <div className='container'>
+    <div className='container text-white'>
       <Header/>
-      <div className='container'>
-        <Dropdown countries={countries} selectedCurrency={fromCurrency} onCurrencyChange={setFromCurrency}/>
-        <RiSwap2Fill onClick={swapCountries}/>
-        <Dropdown countries={countries} selectedCurrency={toCurrency} onCurrencyChange={setToCurrency}/>
+      <div className='container  bg-slate-800  border rounded-md' style={{maxWidth:780}}>
+        <div className='text-center text-pretty font-medium'>
+          <h6>Fincorp Currency convertor</h6>
+          <h6>Check live foreign currency exchange rates</h6>
+        </div>
+
+        <div className='container flex justify-center'>
+          <div className='flex justify-around'>
+            <h6 className='m-2 p-2 text-lg font-medium font-sans'>From</h6>
+            <Dropdown countries={countries} selectedCurrency={fromCurrency} onCurrencyChange={setFromCurrency}/>
+          </div>
+          <div className=' flex justify-around'>
+            <h6 className='m-2 p-2 text-lg font-medium font-sans'>To</h6>
+            <Dropdown countries={countries} selectedCurrency={toCurrency} onCurrencyChange={setToCurrency}/>
+          </div>
+          {/* Section for button */}
+        <button className='container pl-14 '>
+        <FaArrowRightArrowLeft className='bg-white text-black' onClick={swapCountries}/>
+        </button>
+
         <AmtInput amount={amount} onAmountChange={setAmount}/>
-        <AmtOutput value={convertAmt}/>
+        </div>
+        <div className='container flex '>
+        <AmtOutput amount={amount} fromCurrency={fromCurrency} value={convertAmt} toCurrency={toCurrency}  />
+        </div>
+
       </div>
     </div>
   )

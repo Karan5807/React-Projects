@@ -2,10 +2,10 @@ import React from 'react';
 
 const CurrencySelector = ({ countries, selectedCurrency, onCurrencyChange }) => {
   return (
-    <div>
-      <select value={selectedCurrency} onChange={(e) => onCurrencyChange(e.target.value)}>
+    <div className='container'>
+      <select className=' text-black text-center p-2 m-2 text-lg rounded-md' value={selectedCurrency} onChange={(e) => onCurrencyChange(e.target.value)}>
         {countries.map((currency) => (
-          <option key={currency} value={currency}>
+          <option className=' text-black text-center p-2 m-2 text-lg scroll-smooth' key={currency} value={currency}>
             {currency}
           </option>
         ))}

@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { GrLogin } from "react-icons/gr";
 
+
 function Header() {
   return (
-    <div className="container h-14 p-2 flex justify-around relative   font-serif  bg-rose-50">
+    <div className="container h-14 p-2 text-lg font-sans bg-black text-yellow-50 flex justify-between">
       {/* Company Title */}
-      <div className="container">
+      <div className="container mx-auto">
         <h6>Fincorp</h6>
       </div>
 
       {/* Navigation Option */}
-      <div className="container flex justify-around">
+      <div className="container max-w-auto flex  justify-around">
         <div className="container">
           <Link className="Link" to={"/"}>
             Home
@@ -18,12 +19,12 @@ function Header() {
         </div>
         <div className="container">
           <Link className="Link" to={"/Exchange"}>
-            Exchange
+            Xchange
           </Link>
         </div>
         <div className="container">
           <Link className="Link" to={"/ProvidentFund"}>
-            Provident
+            Funds
           </Link>
         </div>
         <div className="container">
@@ -31,9 +32,9 @@ function Header() {
             Deposit
           </Link>
         </div>
-        <div className="container">
+        <div className="container space-x-3">
           <Link className="Link" to={"/MutualFund"}>
-            MutualFund
+            Invest
           </Link>
         </div>
         <div className="container">
@@ -49,9 +50,13 @@ function Header() {
 
         <div className="container">
           <Link className="Link" to={"/Login"}>
-            <button>
-            <GrLogin />
-            </button>
+          <button className="container">SignIn</button>
+          </Link>
+        </div>
+
+        <div className="container">
+          <Link className="Link" to={"/Register"}>
+          <button className="container">Register</button>
           </Link>
         </div>
       </div>
