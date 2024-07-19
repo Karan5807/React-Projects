@@ -12,20 +12,21 @@ const calculateGST = () => {
 
   return (
     // Section for Tabs
-    <div className="container">
+    <div className="container box-content">
       <Header />
-      <div className="container flex justify-center">
+      {/* Section for Tab */}
+      <div className="container flex justify-evenly">
         <button
           className={activeTab === "Inclusive" ? "active" : ""}
           onClick={() => handleTabClick("Inclusive")}
         >
-          Inclusive GST
+          <p className=" p-2 m-2 rounded-md bg-black text-white font-sans text-lg font-medium"> Inclusive GST </p>
         </button>
         <button
           className={activeTab === "Exclusive" ? "active" : ""}
           onClick={() => handleTabClick("Exclusive")}
         >
-          Exclusive GST
+         <p className=" p-1 m-1 rounded-md bg-black text-white font-sans text-lg font-medium">Exclusive GST</p> 
         </button>
       </div>
 

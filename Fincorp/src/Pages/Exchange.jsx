@@ -56,7 +56,7 @@ function Exchange() {
   return (
     <div className='container text-white'>
       <Header/>
-      <div className='container  bg-slate-800  border rounded-md' style={{maxWidth:780}}>
+      <div className='container' style={{maxWidth:780}}>
         <div className='text-center text-pretty font-medium'>
           <h6>Fincorp Currency convertor</h6>
           <h6>Check live foreign currency exchange rates</h6>

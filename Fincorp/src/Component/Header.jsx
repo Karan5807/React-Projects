@@ -4,7 +4,7 @@ import { GrLogin } from "react-icons/gr";
 
 function Header() {
   return (
-    <div className="container h-14 p-2 text-lg font-sans bg-black text-yellow-50 flex justify-between">
+    <div className="container h-14 p-2 text-lg font-sans bg-gray-900 text-yellow-50 flex justify-between">
       {/* Company Title */}
       <div className="container mx-auto">
         <h6>Fincorp</h6>
