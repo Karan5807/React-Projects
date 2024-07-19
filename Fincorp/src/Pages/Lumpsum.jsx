@@ -13,8 +13,6 @@ const Lumpsum = () => {
 
   //  Calculation for Lumpsum Ammount
   const lumpsumReturnAmt = Math.ceil(amount * Math.pow(1 + r, year));
-
-  // const lumpsumInvestAmt = (amount*month).toFixed(2);
   const lumpsumIntrestAmt = Math.ceil(lumpsumReturnAmt - amount);
 
   const lumpSumData = {

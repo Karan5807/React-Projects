@@ -64,6 +64,7 @@ const InclusiveGST = () => {
         </div>
       </div>
 
+      {/* Display Result */}
       <div className="container flex justify-around">
         <div className="block">
           <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
