@@ -3,6 +3,7 @@ import Header from "../Component/Header";
 import Fixed_deposit from "./Fixed_deposit";
 import Recuring_Deposit from "./Recuring_Deposit";
 
+
 function Deposit() {
   const [activeTab, setActiveTab] = useState("Fixed_Deposit");
 

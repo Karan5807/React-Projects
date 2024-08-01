@@ -7,10 +7,13 @@ const Fixed_deposit = () => {
   const [amount, setAmount] = useState(100000);
   const [rate, setRate] = useState(6.5);
   const [year, setYear] = useState(5);
-  const [toggle, setToggle] = useState(false);
+  const [tenure, setTenure] = useState(false);
 
   const ReturnAmt = Math.ceil(amount + amount * rate * (year / 100));
   const EstReturn = ReturnAmt - amount;
+
+  const ReturnAmtMonth = Math.ceil(amount + amount * rate * (year / 12 / 100));
+  const EstReturnMonthly = ReturnAmtMonth - amount;
 
   const fixedData = {
     labels: ["Principal Amount", "Intrest Amount"],
@@ -42,8 +45,8 @@ const Fixed_deposit = () => {
     },
   };
 
-  const handleToggle = () => {
-    setToggle(!toggle);
+  const handleTenure = () => {
+    setTenure(!tenure);
   };
 
   return (
@@ -111,8 +114,8 @@ const Fixed_deposit = () => {
             <h6 className="p-1 m-1 font-sans font-medium text-lg antialiased">
               Number of :
               {
-                <button className="text-orange-600" onClick={handleToggle}>
-                  {toggle ? "Months" : "Year"}
+                <button className="text-orange-600" onClick={handleTenure}>
+                  {tenure ? " Months " : " Years "}
                 </button>
               }
             </h6>
@@ -134,34 +137,66 @@ const Fixed_deposit = () => {
         </div>
 
         {/* Display Result */}
-        <div className="container flex justify-around">
-          <div className="block">
-            <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
-              Invested Amount
-            </h6>
-            <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
-              &#8377;{amount}
-            </h6>
-          </div>
+        {tenure && (
+          <div className="container flex justify-around">
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Invested Amount
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{amount}
+              </h6>
+            </div>
 
-          <div className="block">
-            <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
-              Est Return
-            </h6>
-            <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
-              &#8377;{EstReturn}
-            </h6>
-          </div>
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Est Return
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{EstReturnMonthly}
+              </h6>
+            </div>
 
-          <div className="block">
-            <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
-              Total Value
-            </h6>
-            <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
-              &#8377;{ReturnAmt}
-            </h6>
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Total Value
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{ReturnAmtMonth}
+              </h6>
+            </div>
           </div>
-        </div>
+        )}
+        {!tenure && (
+          <div className="container flex justify-around">
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Invested Amount
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{amount}
+              </h6>
+            </div>
+
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Est Return
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{EstReturn}
+              </h6>
+            </div>
+
+            <div className="block">
+              <h6 className="text-center p-1 m-1 font-sans font-medium text-lg antialiased">
+                Total Value
+              </h6>
+              <h6 className="text-center bg-orange-200 p-1 m-1 font-sans font-medium text-lg antialiased  rounded-md">
+                &#8377;{ReturnAmt}
+              </h6>
+            </div>
+          </div>
+        )}
       </div>
       {/* Section for Graph */}
       <div className="container-md">
