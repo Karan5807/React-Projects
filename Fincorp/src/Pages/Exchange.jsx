@@ -36,9 +36,6 @@ function Exchange() {
     setToCurrency(fromCurrency);
   };
 
-  if (fromCurrency === toCurrency) {
-    return <div className="text-3xl">Change atleast one value</div>;
-  }
   return (
     <div className="container text-white">
       <Header />
@@ -48,16 +45,27 @@ function Exchange() {
           <h6>Check live foreign currency exchange rates</h6>
         </div>
 
-        <div className="container justify-center">
-          <div className="flex justify-around">
-            <h6 className=" text-lg font-medium font-sans">From</h6>
+        <div className="container max-w-[600px] border-2 rounded-lg border-white">
+          {/* Section for From Amount */}
+          <div className=" container flex justify-around m-2 p-2">
+            <h6 className=" text-lg font-medium font-sans m-2 ">From</h6>
             <Dropdown
               countries={countries}
               selectedCurrency={fromCurrency}
               onCurrencyChange={setFromCurrency}
             />
           </div>
-          <div className=" flex justify-around">
+
+          {/* Section for button */}
+          <button className="container">
+            <FaArrowRightArrowLeft
+              className="bg-white text-black"
+              onClick={swapCountries}
+            />
+          </button>
+
+          {/* Section for To Amount */}
+          <div className="container flex justify-around">
             <h6 className=" text-lg font-medium font-sans">To</h6>
             <Dropdown
               countries={countries}
@@ -65,13 +73,6 @@ function Exchange() {
               onCurrencyChange={setToCurrency}
             />
           </div>
-          {/* Section for button */}
-          <button className="container pl-14 ">
-            <FaArrowRightArrowLeft
-              className="bg-white text-black"
-              onClick={swapCountries}
-            />
-          </button>
 
           <AmtInput amount={amount} onAmountChange={setAmount} />
         </div>
